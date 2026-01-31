@@ -2,12 +2,46 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
-  <title>我的第一個網站</title>
+  <title>互動地圖</title>
+
+  <!-- Leaflet 樣式 -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+
+  <style>
+    body { margin: 0; }
+    #map { width: 100vw; height: 100vh; }
+  </style>
 </head>
 <body>
 
-<h1>🎉 我的網站上線了</h1>
-<p> 免費網站</p>
+<div id="map"></div>
+
+<!-- Leaflet 主程式 -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+  // —— 修改這裡為你的圖片尺寸
+  const 圖片寬 = 2000;   // 圖片寬度
+  const 圖片高 = 1200;   // 圖片高度
+
+  // 建立地圖
+  const map = L.map('map', {
+    crs: L.CRS.Simple,
+    minZoom: -2
+  });
+
+  // 告訴 Leaflet 圖片大小
+  const bounds = [[0, 0], [圖片高, 圖片寬]];
+
+  // 把圖片加進地圖
+  L.imageOverlay('map.jpg', bounds).addTo(map);
+  map.fitBounds(bounds);
+
+  // —— 範例標記點
+  L.marker([600, 1000]).addTo(map)
+    .bindPopup('這裡是標記的地方');
+
+</script>
 
 </body>
 </html>
