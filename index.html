@@ -21,8 +21,8 @@
 
 <script>
   // —— 修改這裡為你的圖片尺寸
-  const 圖片寬 = 2000;   // 圖片寬度
-  const 圖片高 = 1200;   // 圖片高度
+  const 圖片寬 = 1852;   // 圖片寬度
+  const 圖片高 = 1472;   // 圖片高度
 
   // 建立地圖
   const map = L.map('map', {
@@ -31,7 +31,7 @@
   });
 
   // 告訴 Leaflet 圖片大小
-  const bounds = [[0, 0], [圖片高, 圖片寬]];
+  const bounds = [[1852, 1472], [圖片高, 圖片寬]];
 
   // 把圖片加進地圖
   L.imageOverlay('map.jpg', bounds).addTo(map);
